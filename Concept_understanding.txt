@@ -1,0 +1,13 @@
+
+1.)Abstraction: Splitting Images into so called "elements" which represent relevant features of the images by abstracting 
+unnecessary details, by clustering pixels. These "elements" should be perceptually homongeneous i.e., the discontinuties 
+between these elements which represents the useful info of sharp edges of the overall image should be preserved.
+
+2.)Element Uniqueness:Evaluate how different each respective element is from all other elements constituting an image,
+essentially measuring the “rarity” of each element
+
+3.) Element distribution:which renders unique elements more salient when they are grouped in a particular image region rather than evenly
+distributed over the whole image.
+
+4.) Saliency Assignment: The two above contrast measures are defined on a per-element level. In a final step, we
+assign the actual saliency values to the input image to get a pixel-accurate saliency map. 
