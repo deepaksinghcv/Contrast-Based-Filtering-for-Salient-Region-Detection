@@ -11,3 +11,18 @@ distributed over the whole image.
 
 4.) Saliency Assignment: The two above contrast measures are defined on a per-element level. In a final step, we
 assign the actual saliency values to the input image to get a pixel-accurate saliency map. 
+
+Abstraction: 
+a.)Super Pixels: https://www.pyimagesearch.com/2014/07/28/a-slic-superpixel-tutorial-using-python/
+                 http://ttic.uchicago.edu/~xren/research/superpixel/
+
+b.)Element Uniqueness and Element Distribution: In summary, by simple evaluation of two Gaussian filters we can compute 
+two non-trivial, but intuitively defined contrast measures on a per-element basis. By filtering color
+values in the image, we compute the uniqueness of an element, while filtering position values in the Lab color space
+gives us the element distribution .
+
+OVERALL SUMMARY OF THE ALGO:
+In summary, algorithm computes
+- the saliency of an image by first abstracting it into small, perceptually homogeneous elements
+- It then applies a series of three Gaussian filtering steps in order to compute the uniqueness and spatial
+distribution of elements as well as to perform the final per-pixel saliency assignment
