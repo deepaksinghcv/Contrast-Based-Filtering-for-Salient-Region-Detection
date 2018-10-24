@@ -17,4 +17,4 @@ BENEFITS:
 - Computational efficiency
 - Perceptual meaningfulness
 - Oversegmentation
-- Graphs over superpixels
+- efficient graph representations across regions of the image.
