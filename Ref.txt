@@ -1,0 +1,3 @@
+Some useful References:
+https://arxiv.org/pdf/1612.01810.pdf
+https://infoscience.epfl.ch/record/177415/files/Superpixel_PAMI2011-2.pdf
