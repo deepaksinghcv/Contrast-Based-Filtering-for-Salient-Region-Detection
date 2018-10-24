@@ -1,0 +1,20 @@
+
+Images are represented as a grid of pixels, in either single or multiple channels.
+
+We take these M x N pixel grids and then apply algorithms to them. 
+
+The problem is that our pixel grid is by no means a natural representation of an image.
+
+Taken as a whole, this grouping of pixels as a pixel grid is simply an artifact of an image — part of the process of capturing and creating digital images.
+That leads us to superpixels.
+
+Intuitively, it would make more sense to explore not only perceptual, but semantic meanings of an image formed by locally grouping pixels 
+as well.When we perform this type of local grouping of pixels on our pixel grid, we arrive at superpixels.
+
+These superpixels carry more perceptual and semantic meaning than their simple pixel grid counterparts.
+
+BENEFITS: 
+- Computational efficiency
+- Perceptual meaningfulness
+- Oversegmentation
+- Graphs over superpixels
