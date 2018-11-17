@@ -1,0 +1,5 @@
+Saliency Assignment has two parts:
+1.)The first part uses the values of the Uniqueness and Distribution Matrxi to produce a Saliency Matrix using the relation
+   Si= Ui * exp(-K*Di)
+2.) But directly translating this to every pixel of each of the segments in Image carries over all segmentation errors 
+of abstraction algorithm.Hence we make use of the weighted linear combination of previously obtained Saliency Map and regenerate a new Saliency map using this linear combination and assign it to each pixel of the appropriate segments.
