@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[11]:
 
 
 # import the necessary packages
@@ -17,18 +17,18 @@ import numpy as np
 import sys
 
 
-# In[2]:
+# In[12]:
 
 
-# sys.argv=['Saliency_filter-Dirty.py','./images/eagle.jpg']
+#sys.argv=['Saliency_filter-Dirty.py','./input_data/eagle.jpg']
 
 
-# In[3]:
+# In[13]:
 
 
 if (len(sys.argv) < 2):
     print("Error: File Name is missing.")
-    print("Usage: python3 SaliencyFilter.py <location_of_file_along_with_filename>")
+    print("Usage: python3 Saliency_Filter.py <location_of_file_along_with_filename>")
     quit()
     
 ipFileName = sys.argv[1]
@@ -47,7 +47,7 @@ segFileName = ipFileName[0:-(fileExtLen+1)]+"_seg"+ipFileName[-(fileExtLen+1):]
     
 
 
-# In[4]:
+# In[14]:
 
 
 sigmap = 0.25
@@ -218,36 +218,43 @@ def saliency_Assignment(U_norm,dist_norm,colors,positions):
             tUniq +=(1/Zi)*np.exp((-1/2*(1/10))*np.square(giveSSD(ci,cj)))*np.exp((-1/2*(1/30))*np.square(giveSSD(pi,pj)))*Si[i] 
 
         S[i] = tUniq
-
+    
     return S
 
 
     
 
 
-# In[5]:
+# In[15]:
 
 
 from skimage import io
 image=io.imread(ipFileName)
+print("Image being read.")
 image_uniqueness=np.zeros((image.shape[0],image.shape[1],3))
 image_distribution=np.zeros((image.shape[0],image.shape[1],3))
 image_saliency=np.zeros((image.shape[0],image.shape[1],3))
 
 colors=[]
 positions=[]
-colors,positions,seg,d_p,o,d_u = abstract(image)
 
+print("Started Abstraction.")
+colors,positions,seg,d_p,o,d_u = abstract(image)
+print("Abstraction successful.")
+
+print("Started Uniqueness Assignment.")
 Uniqueness=uniquenessAssignment(colors,positions)
 U_norm=Uniqueness/max(Uniqueness)
+print("Uniqueness Assignment successful.")
 
+print("Starting Distribution Assignment.")
 dist=distributionAssignment(colors,positions)
-dist.shape
 dist_norm=dist/max(dist)
+print("Distribution Assignment successful.")
 
-
+print("Starting Saliency Assignment.")
 sal=saliency_Assignment(U_norm,dist_norm,colors,positions)    
-
+print("Saliency Assignment successful.")
 
 for i in range(len(d_p)):
     for k in range(len(d_p[i])):
